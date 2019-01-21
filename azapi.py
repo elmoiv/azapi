@@ -20,9 +20,9 @@ import requests
 from lxml import html
 
 class AZlyric:
-    def __init__(self, Artist, Title):
-        self.artist = Artist.replace(' ','').lower()
+    def __init__(self, Title, Artist):
         self.title = Title.replace(' ','').lower()
+        self.artist = Artist.replace(' ','').lower()
 
     def Get(self, save = True):
         page = requests.get(f'https://www.azlyrics.com/lyrics/{self.artist}/{self.title}.html')
@@ -30,6 +30,6 @@ class AZlyric:
         data = tree.xpath('/html/body/div[3]/div/div[2]/div[5]//text()')
         lyrics = ''.join(data[1:])
         if save and lyrics != '':
-            with open(self.artist + '-' + self.title + '.txt', 'w') as lrc:
+            with open(self.title.title() + ' - ' + self.artist.title() + '.txt', 'w') as lrc:
                 lrc.write(lyrics)
         return lyrics
