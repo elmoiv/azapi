@@ -1,9 +1,9 @@
 import azapi
 
-artist = input('Artist: ')
 title = input('Title: ')
+artist = input('Artist: ')
 
-Song = azapi.AZlyric(artist, title)
+Song = azapi.AZlyric(title, artist)
 lyric = Song.Get(save=True)
 
 print(lyric)
