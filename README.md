@@ -10,7 +10,7 @@ A simple api for AZLyrics.com to get lyrics easily :)
 ```
 import azapi
 
-Song = azapi.AZlyrics(artist, title)
+Song = azapi.AZlyric(artist, title)
 
 lyric = Song.Get(save=True)
 
