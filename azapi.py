@@ -29,7 +29,7 @@ class AZlyric:
         tree = html.fromstring(page.content)
         data = tree.xpath('/html/body/div[3]/div/div[2]/div[5]//text()')
         lyrics = ''.join(data[1:])
-        if save:
+        if save and lyrics != '':
             with open(self.artist + '-' + self.title + '.txt', 'w') as lrc:
                 lrc.write(lyrics)
         return lyrics
