@@ -4,15 +4,17 @@ A simple api for AZLyrics.com to get lyrics easily :)
 
 # Features
 - Save lyrics in a .txt file.
-- print lyrics in the Terminal.
+- You can print lyrics in the Terminal.
 
 # How to Use
 ```
 import azapi
 
 Song = azapi.AZlyrics(artist, title)
-Song.Get(save=True)
 
+lyric = Song.Get(save=True)
+
+print(lyric)
 ```
 - _artist_ : must be string value.
 - _title_ : must be string value.
