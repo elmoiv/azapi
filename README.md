@@ -10,14 +10,14 @@ A simple api for AZLyrics.com to get lyrics easily :)
 ```
 import azapi
 
-Song = azapi.AZlyric(artist, title)
+Song = azapi.AZlyric(title, artist)
 
 lyric = Song.Get(save=True)
 
 print(lyric)
 ```
-- _artist_ : must be string value.
 - _title_ : must be string value.
+- _artist_ : must be string value.
 - _save_ : must be boolean value.
 
 
