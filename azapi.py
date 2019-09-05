@@ -28,7 +28,9 @@ class AZlyric:
         page = requests.get(f'https://www.azlyrics.com/lyrics/{self.artist}/{self.title}.html')
         tree = html.fromstring(page.content)
         lyrics = ''.join(tree.xpath('/html/body/div[3]/div/div[2]/div[5]//text()')[1:])
-        if save and lyrics:
-            with open('{}-{}.txt'.format(self.title.title(), self.artist.title()), 'w') as f:
-                f.write(lyrics.strip())
-            return lyrics
+        if lyrics:
+            if save and lyrics:
+                with open('{}-{}.txt'.format(self.title.title(), self.artist.title()), 'w') as f:
+                    f.write(lyrics.strip())
+            return lyrics.strip()
+        return None
