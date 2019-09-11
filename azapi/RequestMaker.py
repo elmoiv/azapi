@@ -854,4 +854,4 @@ class Requester():
     def get(self, url, user_agent=True, _proxies={}):
         if user_agent:
             return requests.get(url, headers={'User-Agent': random.choice(self.USER_AGENTS)}, proxies=_proxies)
-        return requests.get(url)
+        return requests.get(url, proxies=_proxies)
