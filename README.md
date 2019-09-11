@@ -1,5 +1,5 @@
 # azapi
-[![Build Status](https://api.travis-ci.org/elmoiv/AZLyricsAPI.svg?branch=master)](https://travis-ci.org/elmoiv/azapi)
+[![Build Status](https://api.travis-ci.org/elmoiv/azapi.svg?branch=master)](https://travis-ci.org/elmoiv/azapi)
 [![Python version](https://img.shields.io/badge/python-3.x-brightgreen.svg)](https://pypi.org/project/azapi/)
 
 A fast and secure api for AZLyrics.com to get lyrics easily :)
