@@ -47,4 +47,4 @@ Here are a few sample tests:
 * ...
 
 ## Contributing
-Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/AZLyricsAPI/issues) or send me a pull request.
+Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/azapi/issues) or send me a pull request.
