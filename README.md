@@ -38,9 +38,9 @@ print(lyric)
 ## Tests
 Here are a few sample tests:
 
-* [Getting Lyrics](https://github.com/elmoiv/AZLyricsAPI/tree/master/tests/test1.py)
-* [Getting Songs List](https://github.com/elmoiv/AZLyricsAPI/tree/master/tests/test2.py)
-* [Downloading Lyrics from aList](https://github.com/elmoiv/AZLyricsAPI/tree/master/tests/test3.py)
+* [Getting Lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test1.py)
+* [Getting Songs List](https://github.com/elmoiv/azapi/tree/master/tests/test2.py)
+* [Downloading Lyrics from aList](https://github.com/elmoiv/azapi/tree/master/tests/test3.py)
 
 ## TODO
 * Adding songs sorting feature
