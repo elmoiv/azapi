@@ -1,6 +1,6 @@
 import requests, random
 
-# Inspired from: https://github.com/brianchesley/Lyrics/blob/master/lyrics_data_scrape.py
+# https://github.com/tamimibrahim17/List-of-user-agents/blob/master/Chrome.txt
 userAgents = '''Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36
 Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36
@@ -844,6 +844,7 @@ Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_6; en-US) AppleWebKit/530.9 (KHTM
 Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_6; en-US) AppleWebKit/530.6 (KHTML, like Gecko) Chrome/ Safari/530.6
 Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_6; en-US) AppleWebKit/530.5 (KHTML, like Gecko) Chrome/ Safari/530.5'''
 
+# Inspired from: https://github.com/brianchesley/Lyrics/blob/master/lyrics_data_scrape.py
 class Requester():
 
     azURL = 'http://www.azlyrics.com'
