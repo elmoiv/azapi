@@ -9,7 +9,7 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="azapi",
-    version="1.0.1",
+    version="2.0",
     author="elmoiv",
     author_email="elmoiv@yahoo.com",
     description="Fast and Secure AZLyrics API",
