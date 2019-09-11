@@ -28,7 +28,7 @@ class AZlyrics(Requester):
         self.proxies = proxies
 
     def getLyrics(self, url=None, title=None, artist=None, ext='txt', save=True, sleep=5):
-        '''
+        ''' 
         ### Reterives Lyrics for a given song details:
 
         - `url`: url of the song's Azlyrics page
