@@ -22,7 +22,7 @@ pip install azapi
 Or, install the latest version of the package from GitHub:
 
 ```bash
-pip install git+https://github.com/elmoiv/AZLyricsAPI.git
+pip install git+https://github.com/elmoiv/azapi.git
 ```
 ## Usage
 ```python
