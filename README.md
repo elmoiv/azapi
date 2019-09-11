@@ -1,23 +1,47 @@
 # AZLyricsAPI
-A simple api for AZLyrics.com to get lyrics easily :)
+A fast and secure api for AZLyrics.com to get lyrics easily :)
 
 
-# Features
-- Save lyrics in a .txt file.
-- You can print lyrics in the Terminal.
+## Features
+- Get Artist's Songs list with Album, Year ...etc
+- Save lyrics in a .txt file or any format you like.
+- Avoiding BAN using proxy and multiple user agents.
 
-# How to Use
+## Installation
+`azapi` requires Python 3.
+
+Use `pip` to install the package from PyPI:
+
+```bash
+pip install azapi
+```
+
+Or, install the latest version of the package from GitHub:
+
+```bash
+pip install git+https://github.com/elmoiv/AZLyricsAPI.git
+```
+## Usage
 ```
 import azapi
 
-Song = azapi.AZlyric(title, artist)
+Artist = azapi.AZlyric(proxy={})
 
-lyric = Song.Get(save=True)
+lyric = Artist.getLyrics(artist="Taylor Swift", title="Bad Blood", ext="lrc", save=Fasle)
 
 print(lyric)
 ```
 
-# TODO
-* Extend the api to be able to get Artist songs or album list.
-* prevent getting blacklisted while scraping
+## Tests
+Here are a few sample tests:
+
+* [Getting Lyrics](https://github.com/elmoiv/AZLyricsAPI/tree/master/tests/test1.py)
+* [Getting Songs List](https://github.com/elmoiv/AZLyricsAPI/tree/master/tests/test2.py)
+* [Downloading Lyrics from aList](https://github.com/elmoiv/AZLyricsAPI/tree/master/tests/test3.py)
+
+## TODO
+* Adding songs sorting feature
 * ...
+
+## Contributing
+Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/AZLyricsAPI/issues) or send me a pull request.
