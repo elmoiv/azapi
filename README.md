@@ -22,7 +22,7 @@ Or, install the latest version of the package from GitHub:
 pip install git+https://github.com/elmoiv/AZLyricsAPI.git
 ```
 ## Usage
-```
+```python
 import azapi
 
 Artist = azapi.AZlyric(proxy={})
