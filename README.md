@@ -30,7 +30,7 @@ import azapi
 
 Artist = azapi.AZlyrics(proxies={})
 
-lyric = Artist.getLyrics(artist="Taylor Swift", title="Bad Blood", ext="lrc", save=Fasle)
+lyric = Artist.getLyrics("Taylor Swift", "Bad Blood", save=False)
 
 print(lyric)
 ```
