@@ -94,7 +94,7 @@ class AZlyrics(Requester):
         '''
         if artist:
             artist = filtr(artist)
-        else artist:
+        else:
             if self.artist:
                 artist = self.artist
             else:
