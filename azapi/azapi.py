@@ -27,7 +27,7 @@ class AZlyrics(Requester):
         self.artist = filtr(artist)
         self.proxies = proxies
 
-    def getLyrics(self, url=None, title=None, artist=None, ext='txt', save=True, sleep=5):
+    def getLyrics(self, title=None, artist=None, url=None, ext='txt', save=True, sleep=5):
         ''' 
         ### Reterives Lyrics for a given song details:
 
@@ -40,10 +40,6 @@ class AZlyrics(Requester):
         - `sleep`: waiting time before sending a requests
             - It is advised to set it to more than `5` seconds to avoid being banned 
         '''
-        if sleep < 1:
-            # THIS IS RISKY!
-            sleep == 1
-        time.sleep(sleep)
 
         link = None
 
@@ -51,13 +47,19 @@ class AZlyrics(Requester):
         if url:
             link = url
         else:
-            title, artist = filtr(title), filtr(artist)
-            if not all([title, artist]):
+            if title and artist:
+                title, artist = filtr(title), filtr(artist)
+            else:
                 if all([self.title, self.artist]):
                     title, artist = self.title, self.artist
                 else:
                     raise Exception("Both Artist and Title can't be empty!")
             link = '{}/lyrics/{}/{}.html'.format(self.azURL, artist, title)
+            
+        if sleep < 1:
+            # THIS IS RISKY!
+            sleep == 1
+        time.sleep(sleep)
         
         page = self.get(link, _proxies=self.proxies)
 
@@ -90,10 +92,9 @@ class AZlyrics(Requester):
         - `artist`: singer name
             - If it's `None`, it will be set to what you initialized
         '''
-
-        artist = filtr(artist)
-
-        if not artist:
+        if artist:
+            artist = filtr(artist)
+        else artist:
             if self.artist:
                 artist = self.artist
             else:
