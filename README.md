@@ -28,7 +28,7 @@ pip install git+https://github.com/elmoiv/azapi.git
 ```python
 import azapi
 
-Artist = azapi.AZlyrics(proxies={})
+Artist = azapi.AZlyrics()
 
 lyric = Artist.getLyrics("Taylor Swift", "Bad Blood", save=False)
 
