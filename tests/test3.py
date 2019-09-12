@@ -5,4 +5,4 @@ api = AZlyrics('Taylor Swift')
 songs = api.getSongs()
 
 for song in songs:
-    api.getLyrics(url=song["url"])
+    api.getLyrics(url=songs[song]["url"])
