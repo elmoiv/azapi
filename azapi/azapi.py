@@ -22,9 +22,9 @@ class AZlyrics(Requester):
             }
     
     '''
-    def __init__(self, title='', artist='', proxies={}):
-        self.title = filtr(title)
-        self.artist = filtr(artist)
+    def __init__(self, title=None, artist=None, proxies={}):
+        self.title = title
+        self.artist = artist
         self.proxies = proxies
 
     def getLyrics(self, title=None, artist=None, url=None, ext='txt', save=True, sleep=5):
@@ -51,7 +51,7 @@ class AZlyrics(Requester):
                 title, artist = filtr(title), filtr(artist)
             else:
                 if all([self.title, self.artist]):
-                    title, artist = self.title, self.artist
+                    title, artist = filtr(self.title), filtr(self.artist)
                 else:
                     raise Exception("Both Artist and Title can't be empty!")
             link = '{}/lyrics/{}/{}.html'.format(self.azURL, artist, title)
@@ -96,7 +96,7 @@ class AZlyrics(Requester):
             artist = filtr(artist)
         else:
             if self.artist:
-                artist = self.artist
+                artist = filtr(self.artist)
             else:
                 raise Exception("Artist can't be empty!")
 
