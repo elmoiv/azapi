@@ -43,7 +43,7 @@ Here are a few sample tests:
 * [Downloading lyrics from a list](https://github.com/elmoiv/azapi/tree/master/tests/test3.py)
 
 ## TODO
-* Ability to search for artist, album or song.
+* Ability to search for artist, album or song - soon -
 * ...
 
 ## Contributing
