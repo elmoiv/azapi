@@ -62,3 +62,42 @@ def ParseSongs(page):
                 'url': 'http://www.azlyrics.com' + elmnt['href'][2:] if elmnt['href'][:2] == '..' else elmnt['href']
             }
     return songs
+
+def ParseSearch(page, limit, cat):
+    header = htmlFind(page)('div', {'class':'panel-heading'})
+    if not header:
+        return 'Nothing Found!'
+    
+    # Calculate page count
+    page_count = int(header.text.split(' ')[3]) // 20
+
+    limit = 1 if limit < 1 else page_count if limit > page_count else limit
+    
+    results = htmlFindAll(page)('td', {'class':'text-left visitedlyr'})
+
+    data = {n:{} for n in range(len(results))}
+
+    for n, result in enumerate(results):
+
+        # adjust to category
+        raw_text = result.text.split('\n')[1]
+        if cat == 'songs':
+            raw_text = raw_text.split('by')
+            data[n]['artist'] = raw_text[-1][1:]
+            data[n]['name'] = ' '.join(raw_text[0].split()[1:])
+        if cat == 'albums':
+            raw_text = raw_text.split('-')
+            data[n]['artist'] = ' '.join(raw_text[0].split()[1:])
+            data[n]['name'] = raw_text[1][1:]
+        if cat == 'artists':
+            raw_text = raw_text.split()
+            data[n]['artist'] = ' '.join(raw_text[1:])
+            data[n]['name'] = ''
+
+        # Add url of the result
+        for child in result.findChildren():
+            if child.name == 'a':
+                data[n]['url'] = child['href']
+                break
+        
+    return data
