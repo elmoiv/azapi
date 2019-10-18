@@ -844,14 +844,15 @@ Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_6; en-US) AppleWebKit/530.9 (KHTM
 Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_6; en-US) AppleWebKit/530.6 (KHTML, like Gecko) Chrome/ Safari/530.6
 Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_6; en-US) AppleWebKit/530.5 (KHTML, like Gecko) Chrome/ Safari/530.5'''
 
+user_agents = userAgents.split('\n')
+
 # Inspired from: https://github.com/brianchesley/Lyrics/blob/master/lyrics_data_scrape.py
 class Requester():
+    def __init__(self):
+        self.proxies = {}
+        
 
-    azURL = 'http://www.azlyrics.com'
-
-    USER_AGENTS = userAgents.split('\n')
-
-    def get(self, url, user_agent=True, _proxies={}):
+    def get(self, url, user_agent=True):
         if user_agent:
-            return requests.get(url, headers={'User-Agent': random.choice(self.USER_AGENTS)}, proxies=_proxies)
-        return requests.get(url, proxies=_proxies)
+            return requests.get(url, headers={'User-Agent': random.choice(user_agents)}, proxies=self.proxies)
+        return requests.get(url, proxies=self.proxies)
