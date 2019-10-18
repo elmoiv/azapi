@@ -9,10 +9,10 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="azapi",
-    version="2.0",
+    version="2.1.0",
     author="elmoiv",
     author_email="elmoiv@yahoo.com",
-    description="Fast and Secure AZLyrics API",
+    description="Get Lyrics from AZLyrics.com like a Boss ~(0_0)~",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/elmoiv/azapi",
