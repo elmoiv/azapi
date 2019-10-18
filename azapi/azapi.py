@@ -1,6 +1,6 @@
 import time
-from .RequestMaker import Requester
-from .AZtools import *
+from .requester import Requester
+from .tools import *
 
 class AZlyrics(Requester):
     '''
@@ -26,11 +26,13 @@ class AZlyrics(Requester):
         self.title = title
         self.artist = artist
         self.proxies = proxies
+        self.main_url = 'http://www.azlyrics.com'
+        self.search_url = 'https://search.azlyrics.com'
 
-    def getLyrics(self, title=None, artist=None, url=None, ext='txt', save=True, sleep=5):
+    def getLyrics(self, title=None, artist=None, search=False, url=None, ext='txt', save=True, sleep=5):
         ''' 
         ### Reterives Lyrics for a given song details:
-
+        #### args
         - `url`: url of the song's Azlyrics page
             - You don't have to set `artist` or `title` if you have the `url` of the lyrics
         - `title`:  song title
@@ -42,6 +44,7 @@ class AZlyrics(Requester):
         '''
 
         link = None
+        tmp_art, tmp_tit = artist, title
 
         ### Handling args
         if url:
@@ -54,17 +57,47 @@ class AZlyrics(Requester):
                     title, artist = filtr(self.title), filtr(self.artist)
                 else:
                     raise Exception("Both Artist and Title can't be empty!")
-            link = '{}/lyrics/{}/{}.html'.format(self.azURL, artist, title)
-            
+            link = '{}/lyrics/{}/{}.html'.format(self.main_url, artist, title)
+        
         if sleep < 1:
             # THIS IS RISKY!
             sleep == 1
         time.sleep(sleep)
         
-        page = self.get(link, _proxies=self.proxies)
-
-        artist = filtr(str(htmlFindAll(page)('div', class_='lyricsh')[0])[29:-23], True)
-        title = filtr(str(htmlFindAll(page)('b')[1])[4:-5], True)
+        page = self.get(link)
+        search_done = False
+        # Artist and Title Check
+        try:
+            artist = filtr(str(htmlFindAll(page)('div', class_='lyricsh')[0])[29:-23], True)
+            title = filtr(str(htmlFindAll(page)('b')[1])[4:-5], True)
+        except:
+            if not search:
+                raise Exception('Artist or Title not found!')
+            else:
+                if not url:
+                    search_done = True
+                    res = self.search(tmp_art, 'artists')
+                    if res:
+                        # Get first artist found
+                        artist = res[0]['artist']
+                        songs = self.search(tmp_tit, 'songs')
+                        if songs:
+                            for i in songs:
+                                # Get song title if artist is same as found
+                                if songs[i]['artist'] == artist:
+                                    title = songs[i]['name']
+                                    link = songs[i]['url']
+                                    break
+                        else:
+                            raise Exception('Title Not Found!')
+                    else:
+                        raise Exception('Artist Not Found!')
+    
+        if search_done:
+            artist, title = filtr(artist, True), filtr(title, True)
+        
+        page = self.get(link)
+        
         lyrics = ParseLyric(page)
 
         ## Saving Lyrics
@@ -76,7 +109,7 @@ class AZlyrics(Requester):
 
         return None
 
-    def getSongs(self, artist=None):
+    def getSongs(self, artist=None, search=False):
         '''
         ### Returns a dictionary of songs with their links:
         #### output:
@@ -89,9 +122,14 @@ class AZlyrics(Requester):
                "url": "url for the song's lyrics"
                }
         }
+        #### args
         - `artist`: singer name
             - If it's `None`, it will be set to what you initialized
         '''
+        link = None
+
+        tmp = artist
+
         if artist:
             artist = filtr(artist)
         else:
@@ -100,6 +138,53 @@ class AZlyrics(Requester):
             else:
                 raise Exception("Artist can't be empty!")
 
-        albums_page = self.get('{}/{}/{}.html'.format(self.azURL, artist[0], artist), _proxies=self.proxies)
+        if search:
+            # Get url of artist searched
+            arts = self.search(tmp, 'artists')
+            if not arts:
+                raise Exception('Artist not found!')
+            link = arts[0]['url']
+
+        if not link:
+            link = '{}/{}/{}.html'.format(self.main_url, artist[0], artist)
+        
+        albums_page = self.get(link)
 
         return ParseSongs(albums_page)
+
+    def search(self, query, category='songs', limit=1):
+        '''
+        ### Returns a dictionary of search results with their links:
+        #### output:
+         {
+             
+             `zero based index`: {
+               "artist": "artist name",
+               "name": "result type name",
+               "url": "url for the result"
+               }
+        }
+        #### args
+        - `query`: text to pass in search
+        - `category`: should be one of `('songs', 'albums', 'artists')`
+            - default is `songs`
+        - `limit`: number of pages to search through
+        '''
+        #https://search.azlyrics.com/search.php?q=[QUERY]&w=[TYPE]&p=[PAGE]
+
+        if not query:
+            raise Exception("Query can't be empty!")
+
+        if not category in ['songs', 'albums', 'artists']:
+            raise Exception("Category should be in ('songs', 'albums', 'artists')")
+
+        page = self.get(
+            '{}/search.php?q={}&w={}&p={}'.format(
+                                            self.search_url,
+                                            query,
+                                            category,
+                                            limit
+                                                )
+                                    )
+                                
+        return ParseSearch(page, limit, category)
