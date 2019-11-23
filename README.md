@@ -6,10 +6,10 @@ A fast and secure api for AZLyrics.com to get lyrics easily :)
 
 
 ## Features
-- Get Artist's Songs list with Album, Year ...etc
-- Save lyrics in a .txt file or any format you like.
-- Avoid BAN using proxy and multiple user agents.
-- Search for albums, songs, artists when you are not sure.
+- *Get Artist's Songs list with Album, Year ...etc*
+- *Save lyrics in a .txt file or any format you like.*
+- *Avoid BAN using proxy and multiple user agents.*
+- *Search for albums, songs, artists when you are not sure.*
 
 ## Installation
 `azapi` requires Python 3.
