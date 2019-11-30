@@ -3,8 +3,7 @@ from .requester import Requester
 from .tools import *
 
 class AZlyrics(Requester):
-    '''
-    # [AZ Lyrics API](https://github.com/elmoiv/AZLyricsAPI):
+    '''# [AZ Lyrics API](https://github.com/elmoiv/AZLyricsAPI):
 
     ### Fast and Secure api for AZLyrics.com
 
@@ -19,10 +18,9 @@ class AZlyrics(Requester):
                 "https":"xxx.xxx.xxx.xx",
                 ... etc
 
-            }
+            }'''
     
-    '''
-    def __init__(self, title=None, artist=None, proxies={}):
+    def __init__(self, title=None, artist=None, proxies=None):
         self.title = title
         self.artist = artist
         self.proxies = proxies
@@ -30,8 +28,7 @@ class AZlyrics(Requester):
         self.search_url = 'https://search.azlyrics.com'
 
     def getLyrics(self, title=None, artist=None, search=False, url=None, ext='txt', save=True, sleep=5):
-        ''' 
-        ### Reterives Lyrics for a given song details:
+        '''### Reterives Lyrics for a given song details:
         #### args
         - `url`: url of the song's Azlyrics page
             - You don't have to set `artist` or `title` if you have the `url` of the lyrics
@@ -40,8 +37,7 @@ class AZlyrics(Requester):
         - `ext`: extension of the lyrics saved file, default is `.txt`
         - `save`: set to `False` if you don't wan't to save in a file
         - `sleep`: waiting time before sending a requests
-            - It is advised to set it to more than `5` seconds to avoid being banned 
-        '''
+            - It is advised to set it to more than `5` seconds to avoid being banned'''
 
         link = None
         tmp_art, tmp_tit = artist, title
@@ -110,8 +106,7 @@ class AZlyrics(Requester):
         return None
 
     def getSongs(self, artist=None, search=False):
-        '''
-        ### Returns a dictionary of songs with their links:
+        '''### Returns a dictionary of songs with their links:
         #### output:
          {
              
@@ -124,8 +119,7 @@ class AZlyrics(Requester):
         }
         #### args
         - `artist`: singer name
-            - If it's `None`, it will be set to what you initialized
-        '''
+            - If it's `None`, it will be set to what you initialized'''
         link = None
 
         tmp = artist
@@ -153,8 +147,7 @@ class AZlyrics(Requester):
         return ParseSongs(albums_page)
 
     def search(self, query, category='songs', limit=1):
-        '''
-        ### Returns a dictionary of search results with their links:
+        '''### Returns a dictionary of search results with their links:
         #### output:
          {
              
@@ -168,8 +161,7 @@ class AZlyrics(Requester):
         - `query`: text to pass in search
         - `category`: should be one of `('songs', 'albums', 'artists')`
             - default is `songs`
-        - `limit`: number of pages to search through
-        '''
+        - `limit`: number of pages to search through'''
         #https://search.azlyrics.com/search.php?q=[QUERY]&w=[TYPE]&p=[PAGE]
 
         if not query:
