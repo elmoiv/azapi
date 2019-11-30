@@ -150,7 +150,6 @@ class AZlyrics(Requester):
         '''### Returns a dictionary of search results with their links:
         #### output:
          {
-             
              `zero based index`: {
                "artist": "artist name",
                "name": "result type name",
