@@ -141,7 +141,7 @@ class AZlyrics(Requester):
 
         if not link:
             link = '{}/{}/{}.html'.format(self.main_url, artist[0], artist)
-        
+
         albums_page = self.get(link)
 
         return ParseSongs(albums_page)
