@@ -46,13 +46,12 @@ print(lyric)
 
 ## Tests
 Here are a few sample tests:
-
-* [Getting lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test1.py)
-* [Getting songs list](https://github.com/elmoiv/azapi/tree/master/tests/test2.py)
-* [Downloading lyrics from a list](https://github.com/elmoiv/azapi/tree/master/tests/test3.py)
-* [Search for a song and get Lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test4.py)
-* [Using search with `getSongs`](https://github.com/elmoiv/azapi/tree/master/tests/test5.py)
-* [Using search with `getLyrics`](https://github.com/elmoiv/azapi/tree/master/tests/test6.py)
+- [Getting lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test1.py)
+- [Getting songs list](https://github.com/elmoiv/azapi/tree/master/tests/test2.py)
+- [Downloading lyrics from a list](https://github.com/elmoiv/azapi/tree/master/tests/test3.py)
+- [Search for a song and get Lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test4.py)
+- [Using search with `getSongs`](https://github.com/elmoiv/azapi/tree/master/tests/test5.py)
+- [Using search with `getLyrics`](https://github.com/elmoiv/azapi/tree/master/tests/test6.py)
 
 
 ## Contributing
