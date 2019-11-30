@@ -1,6 +1,7 @@
 # azapi
 [![Build Status](https://api.travis-ci.org/elmoiv/azapi.svg?branch=master)](https://travis-ci.org/elmoiv/azapi)
 [![Python version](https://img.shields.io/badge/python-3.x-brightgreen.svg)](https://pypi.org/project/azapi/)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/52bd035af901477a8c7d7aaf043d580f)](https://www.codacy.com/manual/elmoiv/azapi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=elmoiv/azapi&amp;utm_campaign=Badge_Grade)
 
 A fast and secure api for AZLyrics.com to get lyrics easily :)
 
