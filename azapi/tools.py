@@ -99,5 +99,5 @@ def ParseSearch(page, limit, cat):
             if child.name == 'a':
                 data[n]['url'] = child['href']
                 break
-        
+
     return data
