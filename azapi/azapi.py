@@ -57,7 +57,7 @@ class AZlyrics(Requester):
         
         if sleep < 1:
             # THIS IS RISKY!
-            sleep == 1
+            sleep = 1
         time.sleep(sleep)
         
         page = self.get(link)
