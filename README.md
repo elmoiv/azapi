@@ -4,7 +4,6 @@
 
 A fast and secure api for AZLyrics.com to get lyrics easily :)
 
-
 ## Features
 - *Get Artist's Songs list with Album, Year ...etc*
 - *Save lyrics in a .txt file or any format you like.*
@@ -42,16 +41,16 @@ print(lyric)
 - You can search albums, songs and artists
 
 ### v2.0.1 11-9-2019
-* First Release
+- First Release
 
 ## Tests
 Here are a few sample tests:
-- [Getting lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test1.py)
-- [Getting songs list](https://github.com/elmoiv/azapi/tree/master/tests/test2.py)
-- [Downloading lyrics from a list](https://github.com/elmoiv/azapi/tree/master/tests/test3.py)
-- [Search for a song and get Lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test4.py)
-- [Using search with `getSongs`](https://github.com/elmoiv/azapi/tree/master/tests/test5.py)
-- [Using search with `getLyrics`](https://github.com/elmoiv/azapi/tree/master/tests/test6.py)
+-   [Getting lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test1.py)
+-   [Getting songs list](https://github.com/elmoiv/azapi/tree/master/tests/test2.py)
+-   [Downloading lyrics from a list](https://github.com/elmoiv/azapi/tree/master/tests/test3.py)
+-   [Search for a song and get Lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test4.py)
+-   [Using search with `getSongs`](https://github.com/elmoiv/azapi/tree/master/tests/test5.py)
+-   [Using search with `getLyrics`](https://github.com/elmoiv/azapi/tree/master/tests/test6.py)
 
 
 ## Contributing
