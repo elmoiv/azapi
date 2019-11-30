@@ -167,7 +167,7 @@ class AZlyrics(Requester):
         if not query:
             raise Exception("Query can't be empty!")
 
-        if not category in ['songs', 'albums', 'artists']:
+        if category not in ['songs', 'albums', 'artists']:
             raise Exception("Category should be in ('songs', 'albums', 'artists')")
 
         page = self.get(
