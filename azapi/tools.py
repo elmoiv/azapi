@@ -72,7 +72,7 @@ def ParseSearch(page, limit, cat):
     page_count = int(header.text.split(' ')[3]) // 20
 
     limit = 1 if limit < 1 else page_count if limit > page_count else limit
-    
+
     results = htmlFindAll(page)('td', {'class':'text-left visitedlyr'})
 
     data = {n:{} for n in range(len(results))}
