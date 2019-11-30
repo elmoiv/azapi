@@ -848,7 +848,7 @@ user_agents = userAgents.split('\n')
 class Requester():
     def __init__(self):
         self.proxies = {}
-        
+
     def get(self, url, user_agent=True):
         if user_agent:
             return requests.get(url, headers={'User-Agent': random.choice(user_agents)}, proxies=self.proxies)
