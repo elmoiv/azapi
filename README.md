@@ -38,8 +38,8 @@ print(lyric)
 ## Changelog
 
 ### v2.1.0 18-10-2019
-* Added search feature to `getSongs` and `getLyrics`
-* You can search albums, songs and artists
+- Added search feature to `getSongs` and `getLyrics`
+- You can search albums, songs and artists
 
 ### v2.0.1 11-9-2019
 * First Release
