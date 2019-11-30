@@ -178,5 +178,5 @@ class AZlyrics(Requester):
                                             limit
                                                 )
                                     )
-                                
+
         return ParseSearch(page, limit, category)
