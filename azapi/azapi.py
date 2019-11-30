@@ -1,6 +1,6 @@
 import time
 from .requester import Requester
-from .tools import *
+from .tools import filtr, ParseLyric, ParseSongs, ParseSearch
 
 class AZlyrics(Requester):
     '''# [AZ Lyrics API](https://github.com/elmoiv/AZLyricsAPI):
