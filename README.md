@@ -31,7 +31,7 @@ pip install git+https://github.com/elmoiv/azapi.git
 ```python
 import azapi
 
-API = azapi.AZlyrics('google')
+API = azapi.AZlyrics('google', accuracy=0.5)
 
 API.artist = 'Tylor Swft'
 API.title = 'Bad Blods'
