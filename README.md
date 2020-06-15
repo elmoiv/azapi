@@ -6,11 +6,12 @@
 
 A fast and secure api for AZLyrics.com to get lyrics easily :)
 
+
 ## Features
--   *Get Artist's Songs list with Album, Year ...etc*
--   *Save lyrics in a .txt file or any format you like.*
--   *Avoid BAN using proxy and multiple user agents.*
--   *Search for albums, songs, artists when you are not sure.*
+- Get artist's songs list with Album, Year ...etc
+- Can get results via Google* and Duckduckgo* for accurate results.
+- Save lyrics in a .txt file or any format you like.
+- Avoid BAN using proxy** and multiple user agents.
 
 ## Installation
 `azapi` requires Python 3.
@@ -30,30 +31,43 @@ pip install git+https://github.com/elmoiv/azapi.git
 ```python
 import azapi
 
-Artist = azapi.AZlyrics()
+API = azapi.AZlyrics('google')
 
-lyric = Artist.getLyrics("Taylor Swift", "Bad Blood", save=False)
+API.artist = 'Tylor Swft'
+API.title = 'Bad Blods'
 
-print(lyric)
+print(API.getLyrics())
 ```
 ## Changelog
 
-### v2.1.0 18-10-2019
--   Added search feature to `getSongs` and `getLyrics`
--   You can search albums, songs and artists
+### v3.0.0 15-06-2020
+  * Project re-done from scratch.
+  * Added the ability to use search engines.
+  * Fixed unicode issue with non-english lyrics.
+  * Fixed songs list not working for artists with single album.
+  * Removed search as it's no longer needed.
+  * Fixed NoneType bugs.
 
-### v2.0.1 11-9-2019
--   First Release
+### v2.1.0 18-10-2019
+  * Added search feature to `getSongs` and `getLyrics`.
+  * You can use search albums, songs and artists.
+
+### v2.0.1 11-09-2019
+* First Release
 
 ## Tests
 Here are a few sample tests:
--   [Getting lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test1.py)
--   [Getting songs list](https://github.com/elmoiv/azapi/tree/master/tests/test2.py)
--   [Downloading lyrics from a list](https://github.com/elmoiv/azapi/tree/master/tests/test3.py)
--   [Search for a song and get Lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test4.py)
--   [Using search with `getSongs`](https://github.com/elmoiv/azapi/tree/master/tests/test5.py)
--   [Using search with `getLyrics`](https://github.com/elmoiv/azapi/tree/master/tests/test6.py)
 
+  * [Getting lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test1.py)
+  * [Getting songs list](https://github.com/elmoiv/azapi/tree/master/tests/test2.py)
+  * [Downloading lyrics from a list](https://github.com/elmoiv/azapi/tree/master/tests/test3.py)
+  * [Get Lyrics by title only](https://github.com/elmoiv/azapi/tree/master/tests/test4.py)
+  * [Using search engine with titles](https://github.com/elmoiv/azapi/tree/master/tests/test5.py)
+  * [Using search engine with mistyped title and artist](https://github.com/elmoiv/azapi/tree/master/tests/test6.py)
+
+*It is adviced not to send too many requests to avoid IP ban by search engines
+
+**Proxy is set by the user, defult is empty.
 
 ## Contributing
 Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/azapi/issues) or send me a pull request.
