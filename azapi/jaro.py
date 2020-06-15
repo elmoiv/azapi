@@ -1,7 +1,7 @@
 # Python3 implementation of above approach
 # Source: https://www.geeksforgeeks.org/jaro-and-jaro-winkler-similarity/
 # This code is contributed by mohit kumar 29 (GeeksforGeeks.com)
-from math import floor, ceil 
+from math import floor
   
 def jaro_distance(s1, s2): 
     if (s1 == s2): 
