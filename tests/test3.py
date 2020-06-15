@@ -1,7 +1,8 @@
 from azapi import AZlyrics
 
-api = AZlyrics('Taylor Swift')
+api = AZlyrics()
 
+api.artist = 'Taylor Swift'
 songs = api.getSongs()
 
 for song in songs:

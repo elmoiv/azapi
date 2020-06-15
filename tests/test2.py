@@ -3,6 +3,8 @@ import pprint
 
 api = AZlyrics()
 
-songs = api.getSongs('Ed Sheeran')
+api.artist = 'Ed Sheeran'
+
+songs = api.getSongs()
 
 pprint.pprint(songs, indent=5)
