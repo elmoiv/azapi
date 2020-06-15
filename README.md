@@ -9,9 +9,9 @@ A fast and secure api for AZLyrics.com to get lyrics easily :)
 
 ## Features
 - Get artist's songs list with Album, Year ...etc
-- Can get results via Google* and Duckduckgo* for accurate results.
+- Can get results via **Google*** and **Duckduckgo*** for accurate results.
 - Save lyrics in a .txt file or any format you like.
-- Avoid BAN using proxy** and multiple user agents.
+- Avoid BAN using **proxy**** and multiple user agents.
 
 ## Installation
 `azapi` requires Python 3.
@@ -65,9 +65,9 @@ Here are a few sample tests:
   * [Using search engine with titles](https://github.com/elmoiv/azapi/tree/master/tests/test5.py)
   * [Using search engine with mistyped title and artist](https://github.com/elmoiv/azapi/tree/master/tests/test6.py)
 
-*It is adviced not to send too many requests to avoid IP ban by search engines
+***It is adviced not to send too many requests to avoid IP ban by search engines.**
 
-**Proxy is set by the user, defult is empty.
+****Proxy is set by the user, defult is empty.**
 
 ## Contributing
 Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/azapi/issues) or send me a pull request.
