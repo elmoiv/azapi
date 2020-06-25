@@ -8,4 +8,4 @@ api = AZlyrics()
 api.artist = 'Taylor Swift'
 api.title = 'Blank Space'
 
-api.getLyrics()
+api.getLyrics(save=True)
