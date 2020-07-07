@@ -1,4 +1,4 @@
-import bs4, re
+import bs4, re, time
 from urllib.parse import quote
 from .jaro import jaro_distance
 
@@ -131,6 +131,8 @@ def ParseSongs(page):
                 'year': '',
                 'album': '',
                 'type': '',
-                'url': a['href']
+                # v3.0.1: fix relative urls -> absolute url
+                'url': 'http://www.azlyrics.com' + a['href'][2:] \
+                        if a['href'][:2] == '..' else a['href']
                 }
     return songs

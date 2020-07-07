@@ -1,4 +1,3 @@
-import time
 from .requester import Requester
 from .tools import *
 

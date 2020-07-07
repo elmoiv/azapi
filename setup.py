@@ -9,7 +9,7 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="azapi",
-    version="3.0.0",
+    version="3.0.1",
     author="elmoiv",
     author_email="elmoiv@yahoo.com",
     description="Get Lyrics from AZLyrics.com like a Boss ~(0_0)~",
