@@ -1,4 +1,4 @@
-import bs4, re, time
+import bs4, re, time, os
 from urllib.parse import quote
 from .jaro import jaro_distance
 
@@ -7,13 +7,19 @@ letters = 'abcdefghijklmnopqrstuvwxyz0123456789'
 def htmlFind(page):
     # v3.0
     # Changed page.text -> page.content.decode() to support variant unicodes
-    soup = bs4.BeautifulSoup(page.content.decode(), "html.parser")
+    soup = bs4.BeautifulSoup(
+                        page.content.decode(),
+                        "html.parser"
+                        )
     return soup.find
 
 def htmlFindAll(page):
     # v3.0
     # Changed page.text -> page.content.decode() to support variant unicodes
-    soup = bs4.BeautifulSoup(page.content.decode(), "html.parser")
+    soup = bs4.BeautifulSoup(
+                        page.content.decode(),
+                        "html.parser"
+                        )
     return soup.findAll
 
 def filtr(inpt, isFile=False):
@@ -43,8 +49,10 @@ def GoogleGet(srch_eng, acc, get_func, artist='', title='', _type=0):
         slctd_srch_engn = srch_eng
 
     google_page = get_func('{}{}+site%3Aazlyrics.com'.format(
-        search_engines[slctd_srch_engn],
-        encoded_data))
+                                    search_engines[slctd_srch_engn],
+                                    encoded_data
+                                    )
+                            )
     
     # Choose between lyrics or song according to function used
     regex = [
@@ -54,7 +62,10 @@ def GoogleGet(srch_eng, acc, get_func, artist='', title='', _type=0):
     
     # ex result: [('azlyrics.com/t/taylorswift.html', 'taylorswift')]
     # result[0][0] = 'azlyrics.com/t/taylorswift.html'
-    results = re.findall(regex[_type], google_page.text)
+    results = re.findall(
+                        regex[_type],
+                        google_page.text
+                        )
 
     if len(results):
         # calculate jaro similarity for artist and title
@@ -62,9 +73,15 @@ def GoogleGet(srch_eng, acc, get_func, artist='', title='', _type=0):
         jaro_title = 1.0
         
         if artist:
-            jaro_artist = jaro_distance(artist.replace(' ', ''), results[0][1])
+            jaro_artist = jaro_distance(
+                                        artist.replace(' ', ''),
+                                        results[0][1]
+                                        )
         if title:
-            jaro_title = jaro_distance(title.replace(' ', ''), results[0][2])
+            jaro_title = jaro_distance(
+                                        title.replace(' ', ''),
+                                        results[0][2]
+                                        )
         
         if jaro_artist >= acc and jaro_title >= acc:
             return 'https://www.' + results[0][0]

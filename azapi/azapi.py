@@ -25,7 +25,11 @@ class AZlyrics(Requester):
         
         self.proxies = proxies
 
-    def getLyrics(self, url=None, ext='txt', save=False, sleep=3):
+        self.lyrics_history = []
+        self.lyrics = ''
+        self.songs = {}
+
+    def getLyrics(self, url=None, ext='txt', save=False, path='', sleep=3):
         """
         Reterive Lyrics for a given song details
         
@@ -81,17 +85,29 @@ class AZlyrics(Requester):
         title = filtr(metadata[1][1:-1], True)
 
         lyrics = ParseLyric(page)
+        self.lyrics = lyrics.strip()
 
         # Saving Lyrics
         if lyrics:
             if save:
-                with open('{} - {}.{}'.format(
-                                    title.title(),
-                                    artist.title(),
-                                    ext), 'w', encoding='utf-8') as f:
+                # v3.0.2: Adding custom path
+                p = os.path.join(
+                                path,
+                                '{} - {}.{}'.format(
+                                                title.title(),
+                                                artist.title(),
+                                                ext
+                                                )
+                                )
+                
+                with open(p, 'w', encoding='utf-8') as f:
                     f.write(lyrics.strip())
-            return lyrics.strip()
+            
+            # Store lyrics for later usage
+            self.lyrics_history.append(lyrics)
+            return self.lyrics
 
+        self.lyrics = 'No lyrics found :('
         return 2
 
     def getSongs(self, sleep=3):
@@ -132,4 +148,6 @@ class AZlyrics(Requester):
             print('Error 404!')
             return {}
         
-        return ParseSongs(albums_page)
+        # Store songs for later usage
+        self.songs = ParseSongs(albums_page)
+        return self.songs
