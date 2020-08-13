@@ -40,6 +40,17 @@ API.getLyrics(save=True, ext='lrc')
 
 print(API.lyrics)
 ```
+## Tests
+Here are a few sample tests:
+
+  * [Getting lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test1.py)
+  * [Getting lyrics (Custom Path)](https://github.com/elmoiv/azapi/tree/master/tests/test7.py)
+  * [Getting songs list](https://github.com/elmoiv/azapi/tree/master/tests/test2.py)
+  * [Downloading lyrics from a list](https://github.com/elmoiv/azapi/tree/master/tests/test3.py)
+  * [Get Lyrics by title only](https://github.com/elmoiv/azapi/tree/master/tests/test4.py)
+  * [Using search engine with titles](https://github.com/elmoiv/azapi/tree/master/tests/test5.py)
+  * [Using search engine with mistyped title and artist](https://github.com/elmoiv/azapi/tree/master/tests/test6.py)
+
 ## Changelog
 
 ### v3.0.3 13-08-2020
@@ -68,20 +79,9 @@ print(API.lyrics)
 ### v2.0.1 11-09-2019
 * First Release
 
-## Tests
-Here are a few sample tests:
-
-  * [Getting lyrics](https://github.com/elmoiv/azapi/tree/master/tests/test1.py)
-  * [Getting lyrics (Custom Path)](https://github.com/elmoiv/azapi/tree/master/tests/test7.py)
-  * [Getting songs list](https://github.com/elmoiv/azapi/tree/master/tests/test2.py)
-  * [Downloading lyrics from a list](https://github.com/elmoiv/azapi/tree/master/tests/test3.py)
-  * [Get Lyrics by title only](https://github.com/elmoiv/azapi/tree/master/tests/test4.py)
-  * [Using search engine with titles](https://github.com/elmoiv/azapi/tree/master/tests/test5.py)
-  * [Using search engine with mistyped title and artist](https://github.com/elmoiv/azapi/tree/master/tests/test6.py)
+## Contributing
+Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/azapi/issues) or send me a pull request.
 
 **It is adviced not to send too many requests to avoid IP ban by search engines.*
 
 ***Proxy is set by the user, defult is empty.*
-
-## Contributing
-Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/azapi/issues) or send me a pull request.
