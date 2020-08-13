@@ -82,6 +82,13 @@ Here are a few sample tests:
 ## Contributing
 Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/azapi/issues) or send me a pull request.
 
+⠀
+⠀
+⠀
+⠀
+⠀
+
+
 **It is adviced not to send too many requests to avoid IP ban by search engines.*
 
 ***Proxy is set by the user, defult is empty.*
