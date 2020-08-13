@@ -118,9 +118,11 @@ def ParseSongs(page):
         curType, curName, curYear = '', '', ''
 
         for elmnt in Raw_Data:
+            # v3.0.3: Removed break after script due to google ads inside listAlbum
+            # is using script tag, which results in not all songs retrieved
             # <script> is the first thing after songs list so we break
-            if elmnt.name == 'script':
-                break
+            #if elmnt.name == 'script':
+            #    break
             # album info are inside divs
             if elmnt.name == 'div':
                 if elmnt.text == 'other songs:':
