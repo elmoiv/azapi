@@ -42,6 +42,9 @@ print(API.lyrics)
 ```
 ## Changelog
 
+### v3.0.3 13-08-2020
+  * Fixed `getSongs` not returning all songs.
+
 ### v3.0.2 25-07-2020
   * Added the ability to use custom path with `getLyrics`.
   * Added `self.lyrics` and `self.songs` to store last call.
