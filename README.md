@@ -53,6 +53,10 @@ Here are a few sample tests:
 
 ## Changelog
 
+### v3.0.4 22-08-2020
+  * Update title and artist attributes with exact values from AZLyrics.com.
+  * Fixed minor bugs.
+
 ### v3.0.3 13-08-2020
   * Fixed `getSongs` not returning all songs.
 
@@ -77,7 +81,7 @@ Here are a few sample tests:
   * You can use search albums, songs and artists.
 
 ### v2.0.1 11-09-2019
-* First Release
+  * First Release
 
 ## Contributing
 Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/azapi/issues) or send me a pull request.

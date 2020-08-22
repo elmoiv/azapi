@@ -81,8 +81,10 @@ class AZlyrics(Requester):
 
         # Getting Basic metadata from azlyrics
         metadata = [elm.text for elm in htmlFindAll(page)('b')]
-        artist = filtr(metadata[0][:-7], True)
-        title = filtr(metadata[1][1:-1], True)
+        
+        # v3.0.4: Update title and artist attributes with exact names
+        self.artist = filtr(metadata[0][:-7], True)
+        self.title = filtr(metadata[1][1:-1], True)
 
         lyrics = ParseLyric(page)
         self.lyrics = lyrics.strip()
@@ -94,8 +96,8 @@ class AZlyrics(Requester):
                 p = os.path.join(
                                 path,
                                 '{} - {}.{}'.format(
-                                                title.title(),
-                                                artist.title(),
+                                                self.title.title(),
+                                                self.artist.title(),
                                                 ext
                                                 )
                                 )
@@ -104,7 +106,7 @@ class AZlyrics(Requester):
                     f.write(lyrics.strip())
             
             # Store lyrics for later usage
-            self.lyrics_history.append(lyrics)
+            self.lyrics_history.append(self.lyrics)
             return self.lyrics
 
         self.lyrics = 'No lyrics found :('
