@@ -39,6 +39,9 @@ API.title = 'Bad Blods'
 API.getLyrics(save=True, ext='lrc')
 
 print(API.lyrics)
+
+# Correct Artist and Title are updated from webpage
+print(API.title, API.artist)
 ```
 ## Tests
 Here are a few sample tests:
@@ -53,20 +56,25 @@ Here are a few sample tests:
 
 ## Changelog
 
+### v3.0.5 26-09-2020
+  * [#10](https://github.com/elmoiv/azapi/issues/10) Fixed one-liner lyrics can't be retrieved.
+  * Direct lyrics URLs can now be passed without artist or title.
+  * Fixed minor bugs.
+
 ### v3.0.4 22-08-2020
-  * Update title and artist attributes with exact values from AZLyrics.com.
+  * [#9](https://github.com/elmoiv/azapi/issues/9) Update title and artist attributes with exact values from AZLyrics.com.
   * Fixed minor bugs.
 
 ### v3.0.3 13-08-2020
-  * Fixed `getSongs` not returning all songs.
+  * [#8](https://github.com/elmoiv/azapi/issues/8) Fixed `getSongs` not returning all songs.
 
 ### v3.0.2 25-07-2020
-  * Added the ability to use custom path with `getLyrics`.
+  * [#7](https://github.com/elmoiv/azapi/issues/7)Added the ability to use custom path with `getLyrics`.
   * Added `self.lyrics` and `self.songs` to store last call.
   * Added `self.lyrics_history` that stores all fetched lyrics.
 
 ### v3.0.1 07-07-2020
-  * Fixed single albums return relative urls.
+  * [#6](https://github.com/elmoiv/azapi/issues/6) Fixed single albums return relative urls.
 
 ### v3.0.0 15-06-2020
   * Project re-done from scratch.
@@ -86,11 +94,6 @@ Here are a few sample tests:
 ## Contributing
 Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/azapi/issues) or send me a pull request.
 
-⠀
-⠀
-⠀
-⠀
-⠀
 
 
 **It is adviced not to send too many requests to avoid IP ban by search engines.*
