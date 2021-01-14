@@ -90,6 +90,9 @@ Here are a few sample tests:
 
 ### v2.0.1 11-09-2019
   * First Release
+  
+## Stargazers over time
+[![Stargazers over time](https://starchart.cc/elmoiv/azapi.svg)](https://starchart.cc/elmoiv/azapi)
 
 ## Contributing
 Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/azapi/issues) or send me a pull request.
