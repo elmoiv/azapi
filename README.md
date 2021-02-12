@@ -56,6 +56,9 @@ Here are a few sample tests:
 
 ## Changelog
 
+### v3.0.6 12-02-2021
+  * [#11](https://github.com/elmoiv/azapi/issues/11) Fixed proxy not used properly.
+
 ### v3.0.5 26-09-2020
   * [#10](https://github.com/elmoiv/azapi/issues/10) Fixed one-liner lyrics can't be retrieved.
   * Direct lyrics URLs can now be passed without artist or title.
