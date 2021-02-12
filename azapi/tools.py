@@ -33,7 +33,7 @@ def normalGet(artist='', title='', _type=0):
         return 'https://www.azlyrics.com/{}/{}.html'.format(art[0], art)
     return 'https://www.azlyrics.com/lyrics/{}/{}.html'.format(art, tit)
 
-def googleGet(srch_eng, acc, get_func, artist='', title='', _type=0):
+def googleGet(srch_eng, acc, get_func, artist='', title='', _type=0, proxies={}):
     # Encode artist and title to avoid url encoding errors
     data = artist + ' ' * (title != '' and artist != '') + title
     encoded_data = quote(data.replace(' ', '+'))
@@ -51,7 +51,8 @@ def googleGet(srch_eng, acc, get_func, artist='', title='', _type=0):
     google_page = get_func('{}{}+site%3Aazlyrics.com'.format(
                                     search_engines[slctd_srch_engn],
                                     encoded_data
-                                    )
+                                    ),
+                            proxies
                             )
     
     # Choose between lyrics or song according to function used

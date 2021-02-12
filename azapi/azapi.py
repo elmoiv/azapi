@@ -63,7 +63,9 @@ class AZlyrics(Requester):
                             self.get,
                             self.artist,
                             self.title,
-                            0)
+                            0,
+                            self.proxies
+                        )
                 if not link:
                     return 0
             else:
@@ -74,7 +76,7 @@ class AZlyrics(Requester):
                             self.title,
                             0)
 
-        page = self.get(link)
+        page = self.get(link, self.proxies)
         if page.status_code != 200:
             print('Error 404!')
             return 1
@@ -136,7 +138,9 @@ class AZlyrics(Requester):
                         self.get,
                         self.artist,
                         '',
-                        1)
+                        1,
+                        self.proxies
+                    )
             if not link:
                 return {}
         else:
@@ -145,7 +149,7 @@ class AZlyrics(Requester):
                         '',
                         1)
         
-        albums_page = self.get(link)
+        albums_page = self.get(link, self.proxies)
         if albums_page.status_code != 200:
             print('Error 404!')
             return {}
