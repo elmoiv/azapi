@@ -156,4 +156,5 @@ class AZlyrics(Requester):
         
         # Store songs for later usage
         self.songs = parseSongs(albums_page)
+        
         return self.songs
