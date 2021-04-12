@@ -4,7 +4,7 @@
 [![Python version](https://img.shields.io/badge/python-3.x-brightgreen.svg)](https://pypi.org/project/azapi/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/52bd035af901477a8c7d7aaf043d580f)](https://www.codacy.com/manual/elmoiv/azapi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=elmoiv/azapi&amp;utm_campaign=Badge_Grade)
 
-A fast and secure api for AZLyrics.com to get lyrics easily :)
+A fast and secure API for AZLyrics.com to get lyrics easily :)
 
 
 ## Features
@@ -39,6 +39,9 @@ API.title = 'Bad Blods'
 API.getLyrics(save=True, ext='lrc')
 
 print(API.lyrics)
+
+# Correct Artist and Title are updated from webpage
+print(API.title, API.artist)
 ```
 ## Tests
 Here are a few sample tests:
@@ -53,20 +56,28 @@ Here are a few sample tests:
 
 ## Changelog
 
+### v3.0.6 12-02-2021
+  * [#11](https://github.com/elmoiv/azapi/issues/11) Fixed proxy not used properly.
+
+### v3.0.5 26-09-2020
+  * [#10](https://github.com/elmoiv/azapi/issues/10) Fixed one-liner lyrics can't be retrieved.
+  * Direct lyrics URLs can now be passed without artist or title.
+  * Fixed minor bugs.
+
 ### v3.0.4 22-08-2020
-  * Update title and artist attributes with exact values from AZLyrics.com.
+  * [#9](https://github.com/elmoiv/azapi/issues/9) Update title and artist attributes with exact values from AZLyrics.com.
   * Fixed minor bugs.
 
 ### v3.0.3 13-08-2020
-  * Fixed `getSongs` not returning all songs.
+  * [#8](https://github.com/elmoiv/azapi/issues/8) Fixed `getSongs` not returning all songs.
 
 ### v3.0.2 25-07-2020
-  * Added the ability to use custom path with `getLyrics`.
+  * [#7](https://github.com/elmoiv/azapi/issues/7)Added the ability to use custom path with `getLyrics`.
   * Added `self.lyrics` and `self.songs` to store last call.
   * Added `self.lyrics_history` that stores all fetched lyrics.
 
 ### v3.0.1 07-07-2020
-  * Fixed single albums return relative urls.
+  * [#6](https://github.com/elmoiv/azapi/issues/6) Fixed single albums return relative urls.
 
 ### v3.0.0 15-06-2020
   * Project re-done from scratch.
@@ -82,15 +93,13 @@ Here are a few sample tests:
 
 ### v2.0.1 11-09-2019
   * First Release
+  
+## Stargazers over time
+[![Stargazers over time](https://starchart.cc/elmoiv/azapi.svg)](https://starchart.cc/elmoiv/azapi)
 
 ## Contributing
 Please contribute! If you want to fix a bug, suggest improvements, or add new features to the project, just [open an issue](https://github.com/elmoiv/azapi/issues) or send me a pull request.
 
-⠀
-⠀
-⠀
-⠀
-⠀
 
 
 **It is adviced not to send too many requests to avoid IP ban by search engines.*

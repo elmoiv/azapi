@@ -27,13 +27,13 @@ def filtr(inpt, isFile=False):
         return ''.join(i for i in inpt if i not in r'<>:"/\|?*')
     return ''.join(i.lower() for i in inpt if i.lower() in letters)
 
-def NormalGet(artist='', title='', _type=0):
+def normalGet(artist='', title='', _type=0):
     art, tit = filtr(artist), filtr(title)
     if _type:
         return 'https://www.azlyrics.com/{}/{}.html'.format(art[0], art)
     return 'https://www.azlyrics.com/lyrics/{}/{}.html'.format(art, tit)
 
-def GoogleGet(srch_eng, acc, get_func, artist='', title='', _type=0):
+def googleGet(srch_eng, acc, get_func, artist='', title='', _type=0, proxies={}):
     # Encode artist and title to avoid url encoding errors
     data = artist + ' ' * (title != '' and artist != '') + title
     encoded_data = quote(data.replace(' ', '+'))
@@ -51,7 +51,8 @@ def GoogleGet(srch_eng, acc, get_func, artist='', title='', _type=0):
     google_page = get_func('{}{}+site%3Aazlyrics.com'.format(
                                     search_engines[slctd_srch_engn],
                                     encoded_data
-                                    )
+                                    ),
+                            proxies
                             )
     
     # Choose between lyrics or song according to function used
@@ -92,24 +93,12 @@ def GoogleGet(srch_eng, acc, get_func, artist='', title='', _type=0):
     
     return 0
 
-def ParseLyric(page):
-    divs = htmlFindAll(page)('div')
-    for div in divs:
-        # Lyrics div has no class
-        # So we fast check if there is a class or not
-        try:
-            div['class']
-            continue
-        except:
-            pass
-        # Almost all lyrics have more than one <br> tag
-        # v3.0: some songs are too short like: Animals - Matin Garrix
-        found = div.find_all('br')
-        if len(found):
-            # Removing unnecessary lines
-            return div.text[2:-1]
+# v3.0.5: Re-coded ParseLyrics to be more efficient
+def parseLyric(page):
+    divs = [i.text for i in htmlFindAll(page)('div', {'class': None})]
+    return max(divs, key=len)
 
-def ParseSongs(page):
+def parseSongs(page):
     songs = {}
     Parent = htmlFind(page)('div', {'id':'listAlbum'})
     if Parent:
@@ -118,7 +107,7 @@ def ParseSongs(page):
         curType, curName, curYear = '', '', ''
 
         for elmnt in Raw_Data:
-            
+
             # v3.0.3: Removed break after script due to google ads inside listAlbum
             # is using script tag, which results in not all songs retrieved
             #if elmnt.name == 'script':

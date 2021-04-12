@@ -43,6 +43,10 @@ class AZlyrics(Requester):
         Returns:
             lyrics (str): Lyrics of the detected song
         """
+        # Best cooldown is 5 sec
+        time.sleep(sleep)
+
+        link = url
         if title:
             setattr(self, 'title', title)
 
@@ -52,35 +56,37 @@ class AZlyrics(Requester):
         if not self.artist + self.title:
             raise ValueError("Both artist and title can't be empty!")
 
-        # Best cooldown is 5 sec
-        time.sleep(sleep)
 
-        link = url
 
         if not url:
+            # v3.0.5: No need for artist and title if url is found
+            if not self.artist + self.title:
+                raise ValueError("Both artist and title can't be empty!")
             if self.search_engine:
                 # If user can't remember the artist,
                 # he can search by title only
 
                 # Get AZlyrics url via Google Search
-                link = GoogleGet(
+                link = googleGet(
                             self.search_engine,
                             self.accuracy,
                             self.get,
                             self.artist,
                             self.title,
-                            0)
+                            0,
+                            self.proxies
+                        )
                 if not link:
                     return 0
             else:
                 # Sometimes search engines block you
                 # If happened use the normal get method
-                link = NormalGet(
+                link = normalGet(
                             self.artist,
                             self.title,
                             0)
 
-        page = self.get(link)
+        page = self.get(link, self.proxies)
         if page.status_code != 200:
             print('Error 404!')
             return 1
@@ -92,7 +98,7 @@ class AZlyrics(Requester):
         self.artist = filtr(metadata[0][:-7], True)
         self.title = filtr(metadata[1][1:-1], True)
 
-        lyrics = ParseLyric(page)
+        lyrics = parseLyric(page)
         self.lyrics = lyrics.strip()
 
         # Saving Lyrics
@@ -139,22 +145,25 @@ class AZlyrics(Requester):
         time.sleep(sleep)
 
         if self.search_engine:
-            link = GoogleGet(
+            link = googleGet(
                         self.search_engine,
                         self.accuracy,
                         self.get,
                         self.artist,
                         '',
-                        1)
+                        1,
+                        self.proxies
+                    )
             if not link:
                 return {}
         else:
-            link = NormalGet(
+            link = normalGet(
                         self.artist,
                         '',
                         1)
 
-        albums_page = self.get(link)
+        
+        albums_page = self.get(link, self.proxies)
         if albums_page.status_code != 200:
             print('Error 404!')
             return {}
