@@ -151,7 +151,7 @@ class AZlyrics(Requester):
         
         albums_page = self.get(link, self.proxies)
         if albums_page.status_code != 200:
-            print('Error 404!')
+            print('Error', albums_page.status_code)
             return {}
         
         # Store songs for later usage
