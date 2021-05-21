@@ -78,8 +78,15 @@ class AZlyrics(Requester):
 
         page = self.get(link, self.proxies)
         if page.status_code != 200:
-            print('Error',page.status_code)
-            return 1
+            if not self.search_engine:
+                print('Failed to find lyrics. Trying to get link from Google')
+                self.search_engine = 'google'
+                lyrics = self.getLyrics(url=url, ext=ext, save=save, path=path, sleep=sleep)
+                self.search_engine = ''
+                return lyrics
+            else:
+                print('Error',page.status_code)
+                return 1
 
         # Getting Basic metadata from azlyrics
         metadata = [elm.text for elm in htmlFindAll(page)('b')]
@@ -151,8 +158,16 @@ class AZlyrics(Requester):
         
         albums_page = self.get(link, self.proxies)
         if albums_page.status_code != 200:
-            print('Error 404!')
-            return {}
+            print('Error',albums_page.status_code)
+            if not self.search_engine:
+                print('Failed to find songs. Trying to get link from Google')
+                self.search_engine = 'google'
+                songs = self.getLyrics(sleep=sleep)
+                self.search_engine = ''
+                return songs
+            else:
+                print('Error',albums_page.status_code)
+                return {}
         
         # Store songs for later usage
         self.songs = parseSongs(albums_page)
