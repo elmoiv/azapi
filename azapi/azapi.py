@@ -78,7 +78,7 @@ class AZlyrics(Requester):
 
         page = self.get(link, self.proxies)
         if page.status_code != 200:
-            print('Error 404!')
+            print('Error',page.status_code)
             return 1
 
         # Getting Basic metadata from azlyrics
