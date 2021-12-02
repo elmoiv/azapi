@@ -5,7 +5,7 @@ from azapi import AZlyrics
 # AZlyrics('google')
 api = AZlyrics()
 
-api.artist = 'Taylor Swift'
-api.title = 'Blank Space'
+api.artist = "Taylor Swift"
+api.title = "Blank Space"
 
 api.getLyrics(save=True)
