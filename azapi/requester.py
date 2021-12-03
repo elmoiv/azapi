@@ -61,4 +61,3 @@ class Requester:
             headers={"User-Agent": random.choice(self.USER_AGENTS)},
             proxies=_proxies,
         )
-

@@ -37,4 +37,3 @@ def jaro_distance(s1, s2):
     t = t // 2
 
     return (match / len1 + match / len2 + (match - t + 1) / match) / 3.0
-

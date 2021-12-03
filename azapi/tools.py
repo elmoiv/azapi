@@ -146,4 +146,3 @@ def parseSongs(page):
                 else a["href"],
             }
     return songs
-

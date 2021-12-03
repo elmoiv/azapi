@@ -7,4 +7,3 @@ songs = api.getSongs()
 
 for song in songs:
     api.getLyrics(url=songs[song]["url"])
-
