@@ -81,7 +81,7 @@ Here are a few sample tests:
 
 ### v3.0.2 25-07-2020
 
-- [#7](https://github.com/elmoiv/azapi/issues/7)Added the ability to use custom path with `getLyrics`.
+- [#7](https://github.com/elmoiv/azapi/issues/7) Added the ability to use custom path with `getLyrics`.
 - Added `self.lyrics` and `self.songs` to store last call.
 - Added `self.lyrics_history` that stores all fetched lyrics.
 
