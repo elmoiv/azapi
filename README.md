@@ -60,6 +60,9 @@ Here are a few sample tests:
 
 ## Changelog
 
+### v3.0.7 03-01-2022
+- [#6](https://github.com/elmoiv/azapi/issues/6) [Re-Fixed] Single albums return relative urls.
+
 ### v3.0.6 12-02-2021
 
 - [#11](https://github.com/elmoiv/azapi/issues/11) Fixed proxy not used properly.
