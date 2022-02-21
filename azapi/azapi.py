@@ -158,7 +158,6 @@ class AZlyrics(Requester):
         
         albums_page = self.get(link, self.proxies)
         if albums_page.status_code != 200:
-            print('Error',albums_page.status_code)
             if not self.search_engine:
                 print('Failed to find songs. Trying to get link from Google')
                 self.search_engine = 'google'
