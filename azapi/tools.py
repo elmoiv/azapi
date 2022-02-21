@@ -30,6 +30,7 @@ def filtr(inpt, isFile=False):
 def normalGet(artist='', title='', _type=0):
     art, tit = filtr(artist), filtr(title)
     if _type:
+        print('https://www.azlyrics.com/{}/{}.html'.format(art[0], art))
         return 'https://www.azlyrics.com/{}/{}.html'.format(art[0], art)
     return 'https://www.azlyrics.com/lyrics/{}/{}.html'.format(art, tit)
 
@@ -128,8 +129,8 @@ def parseSongs(page):
                     'album': curName,
                     'type': curType,
                     # Azlyrics puts hrefs with/without base url
-                    'url': 'http://www.azlyrics.com' + elmnt['href'][2:] \
-                            if elmnt['href'][:2] == '..' else elmnt['href']
+                    'url': 'http://www.azlyrics.com' + elmnt['href'].strip('.') \
+                            if elmnt['href'].startswith('/lyrics/') else elmnt['href']
                 }
     # v 3.0
     # Some artists have no albums, so we cover this
