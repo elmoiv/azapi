@@ -60,6 +60,9 @@ Here are a few sample tests:
 
 ## Changelog
 
+### v3.0.8 21-02-2022
+- [#17](https://github.com/elmoiv/azapi/pull/17) Use search engine method when normal method fails.
+
 ### v3.0.7 03-01-2022
 - [#6](https://github.com/elmoiv/azapi/issues/6) [Re-Fixed] Single albums return relative urls.
 
