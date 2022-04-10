@@ -91,6 +91,11 @@ class AZlyrics(Requester):
         # Getting Basic metadata from azlyrics
         metadata = [elm.text for elm in htmlFindAll(page)('b')]
         
+        # if metadata is empty, then it's not a valid page
+        if not metadata:
+            print('Error', 'no metadata')
+            return 1
+        
         # v3.0.4: Update title and artist attributes with exact names
         self.artist = filtr(metadata[0][:-7], True)
         self.title = filtr(metadata[1][1:-1], True)
