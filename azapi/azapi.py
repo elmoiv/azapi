@@ -3,15 +3,15 @@ from .tools import *
 
 class AZlyrics(Requester):
     """
-    Fast and Secure API for AZLyrics.com
+    Fast and Secure API for AZLyrics.com.
 
     Attributes:
-        title (str): song title
-        artist (str): singer name
-        search_engine (str): search engine used to assist scraping lyrics
-            - currently available: 'google', 'duckduckgo'
-        accuracy (float): used to determine accuracy via jaro algorithm
-        proxies (dict): if you want to use proxy while connecting to AZLyrics.com
+        title (str): song title.
+        artist (str): artist name.
+        search_engine (str): search engine used to assist scraping lyrics.
+            - currently available: 'google', 'duckduckgo'.
+        accuracy (float): used to determine accuracy via jaro algorithm.
+        proxies (dict): if you want to use proxy while connecting to 'AZLyrics.com'.
     """
     
     def __init__(self, search_engine='', accuracy=0.6, proxies={}):
@@ -31,7 +31,7 @@ class AZlyrics(Requester):
 
     def getLyrics(self, url=None, ext='txt', save=False, path='', sleep=3):
         """
-        Reterive Lyrics for a given song details
+        Retrieve Lyrics for a given song details.
         
         Parameters: 
             url (str): url of the song's Azlyrics page. 
@@ -40,7 +40,7 @@ class AZlyrics(Requester):
             sleep (float): cooldown before next request.  
         
         Returns:
-            lyrics (str): Lyrics of the detected song
+            lyrics (str): Lyrics of the detected song.
         """
 
         # Best cooldown is 5 sec
@@ -128,13 +128,13 @@ class AZlyrics(Requester):
 
     def getSongs(self, sleep=3):
         """
-        Reterive a dictionary of songs with their links
+        Retrieve a dictionary of songs with their links.
 
         Parameters:
             sleep (float): cooldown before next request.  
         
         Returns:
-            dict: dictionary of songs with their links
+            dict: dictionary of songs with their links.
         """
 
         if not self.artist:
